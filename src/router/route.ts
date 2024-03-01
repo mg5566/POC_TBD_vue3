@@ -1,5 +1,6 @@
 import MainPage from "../pages/main/MainPage.vue";
 import LoginPage from "../pages/login/LoginPage.vue";
+import FallbackPage from "../pages/fallback/FallbackPage.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -7,7 +8,7 @@ const route = [
   { path: "/", name: "main", component: MainPage },
   { path: "/login", name: "login", component: LoginPage },
   // TODO: apply fallback page
-  { path: "/:pathMatch(.*)*", redirect: "/login" },
+  { path: "/:pathMatch(.*)*", name: "not-found", component: FallbackPage },
 ];
 
 export const router = createRouter({
