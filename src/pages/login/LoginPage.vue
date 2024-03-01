@@ -8,12 +8,13 @@
 
 <script setup lang="ts">
 import logo from "../../assets/vue.svg";
+import { useRouter } from "vue-router";
 
 /**
  * TODO: install router package
  */
-// const router = useRouter();
+const router = useRouter();
 const loginUser = () => {
-  console.log("Login user");
+  router.push({ name: "main" });
 };
 </script>
