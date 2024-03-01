@@ -1,12 +1,7 @@
 <template>
-  <!-- TODO: apply router view -->
-  <!-- <Login /> -->
-  <MainPage />
+  <RouterView />
 </template>
 
-<script setup lang="ts">
-import Login from "./pages/login/Login.vue";
-import MainPage from "./pages/main/MainPage.vue";
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>
