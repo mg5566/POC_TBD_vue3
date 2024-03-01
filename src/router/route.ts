@@ -15,3 +15,15 @@ export const router = createRouter({
   routes: route,
 });
 
+// TODO: move to store
+const isAuth = true;
+
+// login 을 하지않은 상태라면 login 페이지로 이동시킨다.
+router.beforeEach((to, _, next) => {
+  if (!isAuth && to.name !== "login") {
+    console.log("isAuth", isAuth, "to", to);
+    // return { name: "login" }
+    next({ name: "login" });
+  }
+  next();
+});
