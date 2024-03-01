@@ -3,8 +3,12 @@ import "./style.css";
 import App from "./App.vue";
 import { router } from "./router/route";
 
-// createApp(App).mount("#app");
+if (import.meta.env.DEV) {
+  console.log("Development mode");
 
+  const { worker } = await import("./mock/browser");
+  worker.start();
+}
 const app = createApp(App);
 
 app.use(router);
