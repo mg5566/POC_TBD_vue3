@@ -13,12 +13,13 @@ import instance from "../axios/index";
 // }
 
 // 실사용
+const LOGIN_API = "api/login";
 interface LoginResponse {
   status: "success" | "fail";
   sessionId: string;
 }
 function postLogin(id?: string, pw?: string) {
-  return instance.post<LoginResponse>("/api/login", {
+  return instance.post<LoginResponse>(`${LOGIN_API}`, {
     id: id,
     pw: pw,
   });
