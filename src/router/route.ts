@@ -16,14 +16,16 @@ export const router = createRouter({
   routes: route,
 });
 
-// TODO: move to store
-const isAuth = true;
-
 // login 을 하지않은 상태라면 login 페이지로 이동시킨다.
 router.beforeEach((to, _, next) => {
-  if (!isAuth && to.name !== "login") {
-    console.log("isAuth", isAuth, "to", to);
-    // return { name: "login" }
+  if (to.name === "login") {
+    localStorage.removeItem("sessionId");
+  }
+
+  const sessionId = localStorage.getItem("sessionId");
+  // console.log("sessionId", sessionId, "to", to);
+  // 무한 루프 방지를 위해 to.name !== "login" 조건을 추가한다.
+  if (!sessionId && to.name !== "login") {
     next({ name: "login" });
   }
   next();
